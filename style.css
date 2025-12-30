@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Science+Gothic:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
+
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --primary: #3D00FF;
+  --1text: #E2E2E2;
+  --2text: #A4A4A4;
+  --3text: #848484DB;
+}
+
+body{
+  height: 100dvh;
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(to bottom right, #050014, #0F003F, #102640, #1D1242);
+  color: var(--1text);
+}
+
+input, button{
+  font-family: 'DM Sans', sans-serif;
+}
+
+i{ font-family: unset;}
+
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.top-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+  justify-self: flex-start;
+  background: #00000040;
+  border-bottom:1px solid #3535355E;
+}
+
+.top-section button{
+  height:50px;
+  width: 50px;
+  background: #00000050;
+  color: var(--1text);
+  border: 1px solid #FFFFFF1F;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-section button i{
+  font-size:1.5rem;
+}
+
+.top-section button p{
+  font-size: .7rem;
+}
+
+.top-section h1{
+  font-family: 'Science Gothic';
+  font-weight: 700;
+  background: linear-gradient(to right, #1D03FF, #6900FF);
+  background-clip: text;
+  color: transparent;
+}
+
+
+
+.interaction-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.interaction-bar input{
+  width: 100%;
+  max-width: 400px;
+  margin-right: 4px;
+  padding:16px 18px;
+  border-radius: 1000px;
+  border: 1px solid #1D03FF;
+  color: #D6E8FF;
+  background: #00000080;
+  outline: none;
+}
+
+.interaction-bar button{
+  height: 50px;
+  width: 50px;
+  font-size:1.5rem;
+  padding: 12px 15px;
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1D03FF;
+  background: #00000080;
+  color: #BABABA;
+  margin-left: 4px;
+}
+
+
+
+/* ===============================
+   AI CHAT AREA
+================================ */
+
+.ai-chat{
+  flex: 1;
+  width: 100%;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar (modern look) */
+.ai-chat::-webkit-scrollbar{
+  width: 6px;
+}
+.ai-chat::-webkit-scrollbar-thumb{
+  background: #3d00ff55;
+  border-radius: 10px;
+}
+
+/* ===============================
+   MESSAGE BASE
+================================ */
+
+.message{
+  max-width: 75%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  animation: popIn 0.2s ease-out;
+  word-wrap: break-word;
+}
+
+/* ===============================
+   USER MESSAGE
+================================ */
+
+.message.user{
+  align-self: flex-end;
+  background: linear-gradient(135deg, #3D00FF, #6A00FF);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+/* ===============================
+   AI MESSAGE
+================================ */
+
+.message.ai{
+  align-self: flex-start;
+  background: #00000040;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff1a;
+  color: var(--1text);
+  font-weight: 500;
+  border-bottom-left-radius: 4px;
+  box-shadow: inset 0 0 5px #4709FF70;
+}
+
+/* ===============================
+   MESSAGE META (optional)
+================================ */
+
+.message .meta{
+  font-size: 0.65rem;
+  opacity: 0.6;
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* ===============================
+   TYPING INDICATOR
+================================ */
+
+.typing{
+  width: fit-content;
+  padding: 10px 14px;
+  background: #00000080;
+  border: 1px solid #ffffff1a;
+  border-radius: 14px;
+  display: flex;
+  gap: 5px;
+}
+
+.typing span{
+  width: 6px;
+  height: 6px;
+  background: #aaa;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+
+.typing span:nth-child(2){ animation-delay: .2s; }
+.typing span:nth-child(3){ animation-delay: .4s; }
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+@keyframes popIn{
+  from{
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes blink{
+  0%{ opacity: .2; }
+  20%{ opacity: 1; }
+  100%{ opacity: .2; }
+}
