@@ -1,7 +1,5 @@
 # NEXA-AI
 
-# 🤖 NEXA AI
-
 **NEXA AI** is a lightweight, fully manual AI chat engine built with **vanilla JavaScript**.  
 It uses a **rule-based intent system**, dynamic responses to simulate intelligent conversation — without any APIs or external AI services.
 
